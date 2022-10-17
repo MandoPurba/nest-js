@@ -15,11 +15,6 @@ export class UserController {
     return user;
   }
 
-  @Get('me/bookmarks')
-  getBookmarkByUser(@GetUser('id') userId: number) {
-    return this.userService.getBookmarks(userId);
-  }
-
   @Patch('edit')
   editUser(@GetUser('id') userId: number, @Body() dto: UserDto) {
     return this.userService.editUser(userId, dto);

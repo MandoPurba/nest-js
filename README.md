@@ -29,7 +29,28 @@
 ## Installation
 
 ```bash
+# using npm
 $ npm install
+
+#using yarn
+$ yarn
+```
+
+## Installation Database
+```bash
+# using npm
+$ npm prisma
+
+$ npm prisma init
+
+$ npx prisma migrate dev
+
+# using yarn
+$ yarn prisma
+
+$ yarn prisma init
+
+$ npx prisma migrate dev
 ```
 
 ## Running the app
@@ -45,18 +66,81 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Use the app
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### Signup
+> Method: POST
+> URL: /auth/signup
+```json
+{
+  "email": "string",
+  "password": "string"
+}
 ```
+### Signin
+> Method: POST
+> URL: /auth/signin
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+
+### Get User
+> Method: GET
+> URL: /users/me
+> Header: Authorization => Bearer <i> jwt </i>
+
+### Edit User
+> Method: PATCH
+> URL: /users/{id}
+> Header: Authorization => Bearer <i> jwt </i>
+```json
+{
+  "email": "string *Optional",
+  "password": "string *Optional",
+  "firstName": "string *Optional",
+  "lastName": "string *Optional"
+}
+```
+
+### Get All Bookmarks
+> Method: GET
+> URL: /bookmarks
+> Header: Authorization => Bearer <i> jwt </i>
+
+### Get Bookmarks By Id
+> Method: GET
+> URL: /bookmarks/{id}
+> Header: Authorization => Bearer <i> jwt </i>
+
+### Create Bookmarks
+> Method: POST
+> URL: /bookmarks
+> Header: Authorization => Bearer <i> jwt </i>
+```json
+{
+  "title": "string *Require",
+  "description": "string *Optional",
+  "link": "string *Require"
+}
+```
+### Edit Bookmarks By Id
+> Method: PATCH
+> URL: /bookmarks/{id}
+> Header: Authorization => Bearer <i> jwt </i>
+```json
+{
+  "title": "string *Require",
+  "description": "string *Optional",
+  "link": "string *Require"
+}
+```
+### Delete Bookmarks By Id
+> Method: DELETE
+> URL: /bookmarks/{id}
+> Header: Authorization => Bearer <i> jwt </i>
 
 ## Support
 
@@ -64,9 +148,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Romando Purba](https://mandopurba.github.io/)
 
 ## License
 

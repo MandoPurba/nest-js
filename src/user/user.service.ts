@@ -6,14 +6,6 @@ import { Injectable } from '@nestjs/common';
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
-  getBookmarks(userId: number) {
-    return this.prisma.bookmark.findMany({
-      where: {
-        userId,
-      },
-    });
-  }
-
   async editUser(userId: number, dto: UserDto) {
     const user = await this.prisma.user.update({
       where: {
